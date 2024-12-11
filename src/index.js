@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppRoutes from './components/AppRoutes';
+import { Provider } from 'react-redux';
+import {configureStore} from '@reduxjs/toolkit';
+import CartReducer from './features/CartReducer';
+import ProductReducer from './features/ProductReducer';
+
+const store = configureStore({
+  reducer: {
+    product:  ProductReducer,
+    cart: CartReducer 
+  },
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+    <AppRoutes />
+    </Provider>
+
   </React.StrictMode>
 );
 
