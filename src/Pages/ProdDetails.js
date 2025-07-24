@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProductDetails } from "../features/ProductReducer";
 import { addToCart } from "../features/CartReducer";
+import { Link } from 'react-router-dom';
 
 
 const ProductDetails = () => {
@@ -36,16 +37,27 @@ const handleAddToCart= (product) => {
         <div>
         <Navbar/>
         <div className="Details">
+        <div className="Left-Section">
+        <p className="productName">{product.category}~{product.title}</p>
+        <img src={product.thumbnail} className="detailsImg"/>
+        </div>
+
+        <div className="Right-Section">
         <h3>{product.title}</h3>
-        <img src={product.thumbnail} className="detailImg"/>
-        <h4><strong>CATEGORY:</strong>{product.category}</h4>
+        <h5><strong>CATEGORY:</strong>{product.category}</h5>
         <h5><strong>BRAND:</strong>{product.brand}</h5>
 
         <p><strong>Description:</strong>{product.description}</p>
         <p><strong>Rating:</strong>{product.rating}</p>
         <p><strong>Price:</strong>${product.price}</p>
 
-        <button className="Button2" onClick={() =>handleAddToCart(product)}>Add To Cart</button>
+        <button className="Button3" onClick={() =>handleAddToCart(product)}>Add To Cart</button>
+        <Link to="/Products">
+        <button className="Button3">Continue Shopping</button></Link>
+        
+
+        </div>
+        
 
         </div>
 

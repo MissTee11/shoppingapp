@@ -96,9 +96,7 @@ img{
     font-size: 1.1rem;
     display: flex;
     justify-content: space-between;
-    padding:10px 20px 10px 20px;
-   
-    
+    padding:10px 20px 10px 20px; 
 }
 .footer li 
 {
@@ -136,6 +134,21 @@ h3
     background-color: rgb(241, 183, 244);
     padding: 10px;
 }
+.CartButton{
+    border-radius: 12px;
+    border: none;
+    background-color:rgb(241, 183, 244)  ;
+    color:  rgb(23, 21, 37);
+    padding: 15px;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+}
+.CartButton:hover
+{
+    background-color:rgb(23, 21, 37); 
+    color: rgb(241, 183, 244);
+}
 
 
 
@@ -150,11 +163,20 @@ h3
     width:30%;
    }
    .footer{
-    font-size: 0.5rem;
+    font-size: 1rem;
+    flex-direction: column;
+    padding:10px;
    }
    .pageLinks li a, a{
-    font-size: 0.5rem;
+    font-size: 1rem;
    }
+   .advert{
+    margin-left: 38px;
+   }
+   .socials{
+   padding-bottom: 60px;
+   }
+   
    
 
     

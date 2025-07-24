@@ -1,8 +1,17 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createSelector, createSlice} from "@reduxjs/toolkit"
 
 const initialState= {
     products: [],
 }
+export const CartItemsCount= createSelector(
+    (state)=> state.cart.products,
+    (products) => products.reduce((total,product)=> total + product.quantity,0)
+);
+export const CartItemsTotal= createSelector(
+    (state)=> state.cart.products,
+    (products) => products.reduce((total,product)=> total + product.quantity*product.price-(product.quantity*product.price*product.discountPercentage/100),0).toFixed(2)
+);
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
@@ -40,12 +49,11 @@ const cartSlice = createSlice({
          productInCart.quantity--;
         }
      },
-
     
     },
 
 
 });
 
-export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity} = cartSlice.actions;
 export default cartSlice.reducer;
