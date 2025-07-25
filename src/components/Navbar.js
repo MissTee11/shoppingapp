@@ -1,7 +1,8 @@
 import './HomeComponents.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { CartItemsCount } from '../features/CartReducer';   
+import { CartItemsCount } from '../features/CartReducer';
+import { FaShoppingCart } from "react-icons/fa";   
 
 const Navbar= () =>{
    const total = useSelector(CartItemsCount);
@@ -23,7 +24,8 @@ const Navbar= () =>{
                     </li>
                     <li>
                     <Link to="/YourCart">
-                    <button className='CartButton'>Your Cart: {total}</button>
+                    <button className='CartButton'><span><FaShoppingCart /> Cart</span> 
+                    <span className='badge'>{total}</span></button>
                     </Link>
                     </li>
                 </ul>

@@ -149,6 +149,18 @@ h3
     background-color:rgb(23, 21, 37); 
     color: rgb(241, 183, 244);
 }
+.badge{
+  position: absolute;
+  top: -15px;
+  right: 5px;
+  padding: 5px 10px;
+  border-radius: 50%; 
+  background-color: rgb(55, 51, 84);
+  color: rgb(241, 183, 244);
+}
+.badge:hover{
+    color: rgb(23, 21, 37);
+}
 
 
 
