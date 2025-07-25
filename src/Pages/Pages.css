@@ -153,19 +153,35 @@ strong{
     border: 1px,solid;
     text-align: center;
 }
+.SummaryWrapper{
+    display: flex;
+    justify-content: flex-end;
+}
 .CartSummary{
-    text-align: center;
-    border: solid 1px;
-    border-color:rgb(23, 21, 37) ;
+    text-align: left;
     border-radius: 8px;
-    width: 20%;
-    margin: auto;
-
+    width: 40%;
+    padding: 10px;
+  
+}
+.CartSummary h3{
+    text-align: left;
+    font-size: 1.5rem;
 }
 .CategoryItems{
     display: grid;
     grid-template-columns: auto auto auto;
 
+}
+.CheckoutBtn{
+    border-radius: 0px;
+    border: none;
+    background-color: rgb(23, 21, 37) ;
+    color: rgb(241, 183, 244);
+    padding: 15px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 1.1rem;
 }
 
 @media screen and (max-width: 767px)

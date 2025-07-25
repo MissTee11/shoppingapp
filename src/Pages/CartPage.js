@@ -30,14 +30,7 @@ const Cart= () => {
          {cart.products.length> 0 ?(
          <div>
             <h3 id="motto">SHOPPING CART</h3>
-            <div className="CartSummary"> 
-                    <h3>Summary</h3>
-                    <p><strong>TOTAL ITEMS IN CART: </strong>{total}</p>
-                    <p><strong>TOTAL AMOUNT:</strong>${totalCost}</p>
-                    <button className="Button1">Checkout</button>
-
-                </div>
-
+    
             <table className="Cart">
                 
                     <thead >
@@ -91,6 +84,18 @@ const Cart= () => {
             <p id="EmptyCart">CART IS EMPTY!</p>
             <img src ={Warning} alt="empty cart"/>
             </div>)}
+
+
+            <div className='SummaryWrapper'>
+                <div className="CartSummary"> 
+                    <h3>Summary</h3>
+                    <p><strong>TOTAL ITEMS IN CART: </strong>{total}</p>
+                    <p><strong>TOTAL AMOUNT:</strong>${totalCost}</p>
+                    <button className="CheckoutBtn">Checkout</button>
+
+            </div>
+            </div>
+            
 
         <Footer/>
      </div>
