@@ -30,52 +30,39 @@ const Cart= () => {
          {cart.products.length> 0 ?(
          <div>
             <h3 id="motto">SHOPPING CART</h3>
-    
-            <table className="Cart">
-                
-                    <thead >
-                        <tr>
-                        <th><strong>NAME:</strong></th>
-                        <th><strong>IMAGE:</strong></th>
-                        <th><strong>PRICE</strong></th>
-                        <th><strong>IN STOCK:</strong></th>
-                        <th><strong>DISCOUNT:</strong></th>
-                        <th><strong>WARRANTY:</strong></th>
-                        <th><strong>SHIPPING:</strong></th>
-                        <th><strong>QUANTITY:</strong></th>
-                        <th><strong>SUBTOTAL: </strong></th>
-                        <th><strong>REMOVE</strong></th>
-                        </tr>
-        
-                    </thead>
 
-                    <tbody>
-                    
-                    {cart.products.map((product) => (
-                  <tr key={product.id}  >
-                    <td>{product.title}</td>
-                    <td><img src={product.thumbnail} className="detailImg"/></td>
-                     <td>${product.price}</td>
-                     <td>{product.stock}</td>
-                     <td>{product.discountPercentage}%</td>
-                     <td>{product.warrantyInformation}</td>
-                     <td> {product.shippingInformation}</td>
+            <div className='ProductContainer'>
+                <div className='Right-area'>
+                    {cart.products.map((product)=>(
+                       <div key={product.id}>
+                            <button className="Button1" onClick={()=> handleRemoveFromCart(product.id)}>Remove</button>
+                            <div className='CartItemDetails'>
+                                <p>${(product.quantity * product.price).toFixed(2)}</p>
+                                <div className='QuantityCounter'>
+                                    <button className="ButtonA" onClick={()=> handReduceQuantity(product.id)}>-</button>
+                                    <p className="Quantity">{product.quantity}</p>
+                                    <button className="ButtonA" onClick={()=> handleAddQuantity(product.id)}>+</button>
+                                </div>
+                            </div>
+                       </div>
+                    ))}
+                </div>
 
-                    <td className="QuantityCounter">
-                    <button className="ButtonA" onClick={()=> handReduceQuantity(product.id)}>-</button>
-                    <p className="Quantity">{product.quantity}</p>
-                    <button className="ButtonA" onClick={()=> handleAddQuantity(product.id)}>+</button>
-                </td>
-                <td>${(product.quantity * product.price).toFixed(2)}</td>
-                <td><button className="Button1" onClick={()=> handleRemoveFromCart(product.id)}>Remove</button>
-                </td>
+                <div className='Left-area'>
+                    {cart.products.map((product)=>(
+                       <div key={product.id} className="CartItem">
+                        <img src={product.thumbnail} alt={product.title}/>
+                            <div className='CartItemDetails'>
+                                <h4>{product.title}</h4>
+                                <p>{product.description}</p>
+                                <p>{product.shippingInformation}</p>
+                                <p>{product.warrantyInformation}</p>
+                            </div>
+                       </div>
+                    ))}
+                </div>
 
-                </tr>
-               
-                 ))}
-                
-                </tbody>
-            </table>
+            </div>
            
             </div>
             
