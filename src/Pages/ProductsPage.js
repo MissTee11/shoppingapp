@@ -28,38 +28,46 @@ const fetchProducts= async () =>{
         dispatch(addToCart(product));
     }
 
-    return(
-        <>
-        <Navbar/>
-        <div >
-            <h2>Our Products</h2>
-            <div className="ProductsDisplay">
-                {products.map((product)=> (
-                    <div class="products">
-                    <div key={product.id} className="Card">
-                       <h4>{product.title}</h4>
-                       <img src={product.thumbnail} className="products"/>
-                       <p>Price: ${product.price}</p>
-                       <p>Rating: {product.rating}</p>
-       
-                       <div className="Buttons">
-                           <Link to={`/ProductDets/${product.id}`}>
-                           <button className="Button1">See more</button>
-                           </Link>
-                           
-                           <button className="Button2" onClick={() =>handleAddToCart(product)}>Add To Cart</button>
-                           
-                       </div>
-                   </div>
-       
-               </div>
-                    
-                )) }
+    const groupedProducts = products.reduce((groups, product) => {
+        const category = product.category || 'Uncategorized';
+        if (!groups[category]) groups[category] = [];
+        groups[category].push(product);
+        return groups;
+    }, {});
+
+
+  return (
+  <>
+    <Navbar />
+    <div>
+      <h2>Our Products</h2>
+      <div className="ProductsDisplay">
+        {Object.entries(groupedProducts).map(([category, categoryProducts]) => (
+          <div key={category} className="CategoryGroup">
+            <h3>{category.toUpperCase()}</h3>
+            <div className="CategoryItems">
+              {categoryProducts.map(product => (
+                <div key={product.id} className="Card">
+                  <h4>{product.title}</h4>
+                  <img src={product.thumbnail} className="products" />
+                  <p>Price: ${product.price}</p>
+                  <p>Rating: {product.rating}</p>
+                  <div className="Buttons">
+                    <Link to={`/ProductDets/${product.id}`}>
+                      <button className="Button1">See more</button>
+                    </Link>
+                    <button className="Button2" onClick={() => handleAddToCart(product)}>Add To Cart</button>
+                  </div>
+                </div>
+              ))}
             </div>
-        </div>
-     
-        <Footer/>
-        </>
-    )
+          </div>
+        ))}
+      </div>
+    </div>
+    <Footer />
+  </>
+);
+
 }
 export default Products;

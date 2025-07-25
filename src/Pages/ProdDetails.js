@@ -44,12 +44,12 @@ const handleAddToCart= (product) => {
 
         <div className="Right-Section">
         <h3>{product.title}</h3>
-        <h5><strong>CATEGORY:</strong>{product.category}</h5>
-        <h5><strong>BRAND:</strong>{product.brand}</h5>
+        <h5><strong>CATEGORY: </strong>{product.category}</h5>
+        <h5><strong>BRAND: </strong>{product.brand}</h5>
 
-        <p><strong>Description:</strong>{product.description}</p>
-        <p><strong>Rating:</strong>{product.rating}</p>
-        <p><strong>Price:</strong>${product.price}</p>
+        <p><strong>Description: </strong>{product.description}</p>
+        <p><strong>Rating: </strong>{product.rating}</p>
+        <p><strong>Price: </strong>${product.price}</p>
 
         <button className="Button3" onClick={() =>handleAddToCart(product)}>Add To Cart</button>
         <Link to="/Products">
