@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/footer';
 import { useSelector,useDispatch } from "react-redux";
 import { removeFromCart, incrementQuantity, decrementQuantity, CartItemsCount, CartItemsTotal } from "../features/CartReducer";
-import Warning from '../components/images/warning.avif'
+import { RiDeleteBinLine } from "react-icons/ri";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 
 const Cart= () => {
@@ -32,31 +33,30 @@ const Cart= () => {
             <h3 id="motto">SHOPPING CART</h3>
 
             <div className='ProductContainer'>
-                <div className='Right-area'>
+                <div className='Left-area'>
                     {cart.products.map((product)=>(
-                       <div key={product.id}>
-                            <button className="Button1" onClick={()=> handleRemoveFromCart(product.id)}>Remove</button>
+                       <div key={product.id} className="CartItem">
+                        <img src={product.thumbnail} alt={product.title} className='productImg'/>
                             <div className='CartItemDetails'>
-                                <p>${(product.quantity * product.price).toFixed(2)}</p>
-                                <div className='QuantityCounter'>
-                                    <button className="ButtonA" onClick={()=> handReduceQuantity(product.id)}>-</button>
-                                    <p className="Quantity">{product.quantity}</p>
-                                    <button className="ButtonA" onClick={()=> handleAddQuantity(product.id)}>+</button>
-                                </div>
+                                <h4>{product.title}</h4>
+                                <p><strong>Description:</strong>{product.description}</p>
+                                <p><strong>Shipping:</strong>{product.shippingInformation}</p>
+                                <p><strong>Warranty:</strong>{product.warrantyInformation}</p>
                             </div>
                        </div>
                     ))}
                 </div>
-
-                <div className='Left-area'>
+                <div className='Right-area'>
                     {cart.products.map((product)=>(
-                       <div key={product.id} className="CartItem">
-                        <img src={product.thumbnail} alt={product.title}/>
+                       <div key={product.id}>
+                            <button className="RemoveButton" onClick={()=> handleRemoveFromCart(product.id)}><RiDeleteBinLine /></button>
                             <div className='CartItemDetails'>
-                                <h4>{product.title}</h4>
-                                <p>{product.description}</p>
-                                <p>{product.shippingInformation}</p>
-                                <p>{product.warrantyInformation}</p>
+                                <p>${(product.quantity * product.price).toFixed(2)}</p>
+                                <div className='QuantityCounter'>
+                                    <button className="ButtonA" onClick={()=> handleAddQuantity(product.id)}><FaPlus/></button>
+                                    <p className="Quantity">{product.quantity}</p>
+                                    <button className="ButtonA" onClick={()=> handReduceQuantity(product.id)}><FaMinus/></button>
+                                </div>
                             </div>
                        </div>
                     ))}
@@ -69,7 +69,6 @@ const Cart= () => {
         ) : (<div className="CartEmpty">
          
             <p id="EmptyCart">CART IS EMPTY!</p>
-            <img src ={Warning} alt="empty cart"/>
             </div>)}
 
 
