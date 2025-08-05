@@ -164,6 +164,9 @@ strong{
 .CartEmpty{
     text-align: center;
 }
+#EmptyCart{
+      color: rgb(214, 116, 219);
+}
 .QuantityCounter{
     display: flex;
     justify-content: right;

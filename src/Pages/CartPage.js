@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { removeFromCart, incrementQuantity, decrementQuantity, CartItemsCount, CartItemsTotal } from "../features/CartReducer";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaPlus, FaMinus } from "react-icons/fa6";
+import { BsCartX } from "react-icons/bs";
 
 
 const Cart= () => {
@@ -77,7 +78,7 @@ const Cart= () => {
   </div>
 ) : (
   <div className="CartEmpty">
-    <p id="EmptyCart">CART IS EMPTY!</p>
+    <p id="EmptyCart"><BsCartX /> CART IS EMPTY!</p>
   </div>
 )}
 
