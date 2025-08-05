@@ -37,7 +37,7 @@ const Cart= () => {
         <div className="Left-area">
           <div className="CartItem">
             <img src={product.thumbnail} alt={product.title} className="productImg" />
-            <div className="CartItemDetails">
+            <div className="CartItemDetails" >
               <h4>{product.title}</h4>
               <p><strong>Description:</strong> {product.description}</p>
               <p><strong>Shipping:</strong> {product.shippingInformation}</p>

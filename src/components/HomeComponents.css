@@ -3,7 +3,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     background-color: rgb(23, 21, 37) ;
-    padding: 5px 10px;
+    padding: 0px 10px;
     box-shadow: 0px 5px 15px ;
 }
 #navbar{
@@ -11,7 +11,7 @@ nav{
 }
 #navbar li{
     list-style: none;
-    padding: 0px 20px;
+    padding:10px;
     position: relative;
 
 
@@ -153,8 +153,8 @@ h3
 }
 .badge{
   position: absolute;
-  top: -15px;
-  right: 5px;
+  top: -10px;
+  right: -5px;
   padding: 5px 10px;
   border-radius: 50%; 
   background-color: rgb(55, 51, 84);
@@ -171,7 +171,6 @@ h3
     justify-content: center;
 
 }
-
 
 @media screen and (max-width: 767px)
 {
@@ -226,13 +225,15 @@ h3
     align-items: flex-end;
     gap: 15px;
     padding: 30px 35px;
-    background: linear-gradient(0deg, #6e473b 0%, #21160b 100%);
-    box-shadow: 0 0 4px #e1d4c2;
-    border-radius: 12px;
-    z-index: 3;
+    background-color: rgb(23, 21, 37);
+    box-shadow: 0 0 4px rgb(241, 183, 244);
+    z-index: 2;
   }
   .menuItems.menuOpen {
     display: flex;
+    margin: -20px;
+    padding:20px;
+    width: 200px;
   }
    .menuItems li {
     width: 100%;
@@ -246,7 +247,6 @@ h3
         display: flex;
         z-index: 1;
     }
-
 }
 
 
