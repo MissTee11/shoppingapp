@@ -19,6 +19,8 @@
     padding: 15px;
     cursor: pointer;
     font-size: 16px;
+    width: 10%;
+    align-self: flex-end;
 }
 .Button2{
     border-radius: 12px;
@@ -30,12 +32,8 @@
     cursor: pointer;
 }
 .ButtonA{
-    border: none;
     background-color: rgb(23, 21, 37) ;
     color: rgb(241, 183, 244);
-    cursor: pointer;
-    width: 20%;
-    border-radius: 8px;
 }
 .Button3{
     border-radius: 12px;
@@ -111,12 +109,12 @@ strong{
     display: flex;
     border: rgb(214, 116, 219) 1px solid;
     width: 70%;
-    margin: auto;
+    margin: 20px auto;
     border-radius: 8px;
-    padding: 30px;
+    padding: 15px;
 }
 .productImg{
-    width: 20%;
+    width: 10%;
     padding-left: 20px;
 }
 .Right-area{
@@ -145,6 +143,7 @@ strong{
 .Left-Section{
     width: 50%;
     padding: 20px;
+    align-items: center;
 
 }
 .Right-Section{
@@ -195,8 +194,7 @@ strong{
     font-size: 1.5rem;
 }
 .CartItemDetails{
-    font-size: 16px;
-    gap:0px;
+    font-size: 1rem;
 }
 .CategoryItems{
     display: grid;
@@ -302,6 +300,21 @@ strong{
 	td:nth-of-type(8):before { content: "Quantity"; }
 	td:nth-of-type(9):before { content: "SubTotal"; }
 	td:nth-of-type(10):before { content: "Remove"; }
+
+    .ProductContainer{
+        flex-direction: column;
+    }
+    .Left-area{
+        width: 100%;
+    }
+    .Right-area{
+        width: 100%;
+       display: flex;
+       flex-direction: column;
+    }
+    .RemoveButton{
+        width: 15%;
+    }
 
 }
 
